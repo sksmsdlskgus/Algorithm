@@ -10,9 +10,12 @@ class Solution {
             int j = commands[idx][1]; 
             int k = commands[idx][2];
 
+            System.out.println(result);
+            
             // 1. 배열 자르기
             int[] subArray = Arrays.copyOfRange(array, i - 1, j);
 
+            
             Arrays.sort(subArray);
 
             result[idx] = subArray[k - 1];
