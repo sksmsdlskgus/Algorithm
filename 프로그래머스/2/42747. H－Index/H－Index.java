@@ -2,22 +2,35 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int[] citations) {
-         // h를 구하기 -> 논문 n편중 h번 이상 인용된 논문이 h편 이상이고, 
-        // 나머지 논문이 h번 이하 인용 되었다면 h의 최댓값이  이 과학자의  H-Index값이다.  H-Index를 구해라. 
+        System.out.println(Arrays.toString(citations));
         // 논문의 인용 횟수를 담은 배열 citations
-        // 논문 인용 횟수 배열을 내림차순으로 정렬
+        // n = 총 논문 수  -> 5
+        // n-h = 나머지 논문 수 k -> 5-h // k+h 는 5보다 작다.
+        // h편 = h 이상 인용
+        // n-h편 = h 이하 인용 ->  h편 = h + 5 이하 인용
+        // h의 최댓값은?
+        
+        int answer =0; 
         Arrays.sort(citations);
+        System.out.println(Arrays.toString(citations));
         
         int n = citations.length;
+        System.out.println("논문 총 편수 :"+ n);
         
-        // H-Index를 구하기 위해 반복
-        for (int i = 0; i < n; i++) {
-            int h = n - i; // 현재 H-Index 후보
-            if (citations[i] >= h) {
-                return h; // 조건 만족 시 H-Index 반환
+        for (int i=0; i<n; i++){
+            // 0 부터 4까지 순회할건데 무엇을 순회 하느냐.
+            int h = n- i ;
+            System.out.println("현재 논문: " + citations[i] + ", h-index 후보: " + h);
+            
+            if(citations[i] >= h && n-h <= h){
+                System.out.println("조건 만족: " + h);
+                answer = h;
+                break;
+                 
             }
+            
         }
-        
-        return 0; // 모든 조건을 만족하지 않을 경우 H-Index는 0
+      
+        return answer;
     }
 }
