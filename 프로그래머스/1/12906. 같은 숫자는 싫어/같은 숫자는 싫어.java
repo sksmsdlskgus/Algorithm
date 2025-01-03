@@ -4,7 +4,7 @@ public class Solution {
     public int[] solution(int[] arr) {
         int n = arr.length;
         if (n == 0) return new int[0]; 
-        
+         
         int[] result = new int[n];
         int index = 0; 
         
