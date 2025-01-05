@@ -11,12 +11,12 @@ class Solution {
             this.playCount = playCount;
         }
         
-    public String toString() {
-        return "Song{" +
-                "index=" + index +
-                ", playCount=" + playCount +
-                '}';
-    }
+  //  public String toString() {
+  //      return "Song{" +
+  //              "index=" + index +
+  //              ", playCount=" + playCount +
+  //              '}';
+  //   }
 }
 
     public int[] solution(String[] genres, int[] plays) {
