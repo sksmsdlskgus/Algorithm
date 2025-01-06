@@ -65,7 +65,7 @@ class Solution {
         // System.out.println("최종 결과: " + result);
         
         int[] answer = new int[result.size()];
-        for (int i=0; i<result.size(); i++){
+        for (int i=0; i<result.size(); i++){ 
             answer[i] = result.get(i);
         }
         return answer;
