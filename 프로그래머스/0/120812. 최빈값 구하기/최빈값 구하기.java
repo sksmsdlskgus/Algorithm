@@ -2,31 +2,22 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] array) {
- 
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
-
-        for (int num : array) {
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
-        }
+        int maxCount = 0;
+        int answer = 0;
         
-
-        int maxFrequency = 0;
-        int mode = -1;
-        boolean isUnique = true;
-
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            int key = entry.getKey();
-            int value = entry.getValue();
-            
-            if (value > maxFrequency) {
-                maxFrequency = value;
-                mode = key;
-                isUnique = true; 
-            } else if (value == maxFrequency) {
-                isUnique = false; 
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int number : array){
+            int count = map.getOrDefault(number, 0) + 1;
+            if(count > maxCount){
+                maxCount = count;
+                answer = number;
             }
+            else  if(count == maxCount){
+                answer = -1;
+            }
+            map.put(number, count);
         }
-
-        return isUnique ? mode : -1;
+        return answer;
     }
 }
