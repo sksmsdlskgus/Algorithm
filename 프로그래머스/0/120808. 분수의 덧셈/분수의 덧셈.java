@@ -10,8 +10,8 @@ class Solution {
         
         int gcd = getGCD(denom, number);
         
-        number = number/gcd;
-        denom = denom/gcd;
+        number /= gcd;
+        denom /= gcd;
            
         answer[0] = number;
         answer[1] = denom;
