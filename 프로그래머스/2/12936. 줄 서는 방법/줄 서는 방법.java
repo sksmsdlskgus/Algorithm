@@ -10,11 +10,8 @@ class Solution {
             numbers.add(i);
         }
         
-        long fact =1;
-        for(long i=1; i<n; i++){
-            fact*= i;
-        }
-        
+        long fact = calculateFactorial(n);
+            
         k--; 
         
         for(int i=0; i<n; i++){
@@ -30,5 +27,15 @@ class Solution {
         }
         
         return answer;
+    }
+    
+    private long calculateFactorial(int num){
+        long fact =1;
+        
+        for(long i=1; i<num; i++){
+            fact*= i;
+        }
+        
+        return fact;
     }
 }
