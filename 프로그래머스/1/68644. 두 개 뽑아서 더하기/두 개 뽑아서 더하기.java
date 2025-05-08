@@ -1,7 +1,7 @@
 import java.util.*;
+
 class Solution {
     public int[] solution(int[] numbers) {
-        
         Set <Integer> set = new HashSet<>();
         
         for(int i=0; i <numbers.length; i++){
@@ -12,7 +12,8 @@ class Solution {
         
         int[] answer = new int[set.size()];
         int index =0;
-        for(int num :set){
+        
+        for(int num:set){
             answer[index++] = num;
         }
         
