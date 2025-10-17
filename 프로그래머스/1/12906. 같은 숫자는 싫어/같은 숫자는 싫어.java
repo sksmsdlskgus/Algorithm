@@ -1,22 +1,19 @@
 import java.util.*;
+// 연속으로 나온건 하나만 -> 중복 제외, 순서 유지하면서 배열로 반환
 
 public class Solution {
-    public int[] solution(int[] arr) {
-        int n = arr.length;
-        if (n == 0) return new int[0]; 
-         
-        int[] result = new int[n];
-        int index = 0; 
+    public int[] solution(int []arr) {
+        int[] answer = {};
+        List<Integer> list = new ArrayList<>();
         
-        result[index++] = arr[0]; 
-        
-        for (int i = 1; i < n; i++) {
-            // 이전 값과 다를 때만 추가
-            if (arr[i] != arr[i - 1]) {
-                result[index++] = arr[i];
-            }
+        int last = -1;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] != last){
+                list.add(arr[i]);
+                last = arr[i];
+            }else continue;
         }
-        
-        return Arrays.copyOf(result, index);
+                
+        return list.stream().mapToInt(i->i).toArray();
     }
 }
