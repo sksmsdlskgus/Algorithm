@@ -1,16 +1,24 @@
+import java.util.*;
+
 class Solution {
     public int solution(int[][] sizes) {
-        int maxWidth = 0;
-        int maxHeight = 0;
+        // 가로,세로 상관없이 
+        int max_x = 0;
+        int min_y = 0;
+        
+        for(int i=0; i<sizes.length; i++){
+            int x = sizes[i][0]; 
+            int y = sizes[i][1];
 
-        for (int[] size : sizes) {
-            int width = Math.max(size[0], size[1]);
-            int height = Math.min(size[0], size[1]);
+            int big = Math.max(x,y);
+            int small = Math.min(x,y);
 
-            maxWidth = Math.max(maxWidth, width);
-            maxHeight = Math.max(maxHeight, height);
+            max_x = Math.max(max_x,big);
+            min_y = Math.max(min_y,small);
+            
         }
-
-        return maxWidth * maxHeight;
+        
+        
+        return max_x * min_y;
     }
 }
