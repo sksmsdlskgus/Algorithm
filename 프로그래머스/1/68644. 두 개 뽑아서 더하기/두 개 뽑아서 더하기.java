@@ -2,22 +2,19 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] numbers) {
-        Set <Integer> set = new HashSet<>();
+        List<Integer> list = new LinkedList<>();
         
-        for(int i=0; i <numbers.length; i++){
-            for(int j= i+1; j<numbers.length; j++){
-                set.add(numbers[i]+numbers[j]);
+        for(int i=0; i<numbers.length; i++){
+            for(int j=i+1; j<numbers.length; j++){
+                int sum = numbers[i] + numbers[j];
+                if(!list.contains(sum)){
+                    list.add(sum);
+                }
             }
         }
         
-        int[] answer = new int[set.size()];
-        int index =0;
+        Collections.sort(list);
         
-        for(int num:set){
-            answer[index++] = num;
-        }
-        
-        Arrays.sort(answer);
-        return answer;
+        return list.stream().mapToInt(i->i).toArray();
     }
 }
