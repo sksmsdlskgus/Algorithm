@@ -4,8 +4,12 @@ class Solution {
     public String solution(String s) {
         char[] c = s.toCharArray();
         Arrays.sort(c);
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=c.length-1; i >= 0; i--){
+            sb.append(c[i]);
+        }
         
-        String sb = new StringBuilder(new String(c)).reverse().toString();
-        return sb;
+        return sb.toString();
     }
 }
